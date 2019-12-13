@@ -11,7 +11,7 @@ pipeline {
 
         stage('Check Pubspec.yaml') {
           steps {
-            echo 'Check if exists'
+            fileExists 'pubspec.yaml'
           }
         }
 
