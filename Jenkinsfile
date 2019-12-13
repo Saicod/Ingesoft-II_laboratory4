@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'my_app'
-    }
-
-  }
+  agent any
   stages {
     stage('BuildIngesoftLab4') {
       parallel {
