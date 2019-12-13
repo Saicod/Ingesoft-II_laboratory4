@@ -15,6 +15,12 @@ pipeline {
           }
         }
 
+        stage('Check falseFile.dart') {
+          steps {
+            fileExists 'falseFile.dart'
+          }
+        }
+
       }
     }
 
