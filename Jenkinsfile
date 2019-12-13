@@ -1,32 +1,130 @@
 pipeline {
   agent any
   stages {
-    stage('BuildIngesoftLab4') {
+    stage('Build') {
+      steps {
+        echo 'Build Checks'
+      }
+    }
+
+    stage('Testing') {
       parallel {
-        stage('BuildIngesoftLab4') {
+        stage('Testing') {
           steps {
-            echo 'Hello'
+            echo 'Testing Phase'
           }
         }
 
-        stage('Check Pubspec.yaml') {
+        stage('Unit Test') {
           steps {
-            fileExists 'pubspec.yaml'
+            echo 'Unit Testing'
           }
         }
 
-        stage('Check falseFile.dart') {
+        stage('Widget Test') {
           steps {
-            fileExists 'falseFile.dart'
+            echo 'Widget Testing'
+          }
+        }
+
+        stage('Integration test') {
+          steps {
+            echo 'Integration Testing'
           }
         }
 
       }
     }
 
-    stage('Testing') {
-      steps {
-        echo 'Testeando'
+    stage('OS Test') {
+      parallel {
+        stage('OS Test') {
+          steps {
+            echo 'Begin OS Test'
+          }
+        }
+
+        stage('Android') {
+          steps {
+            echo 'Android Testing'
+          }
+        }
+
+        stage('iOS') {
+          steps {
+            echo 'iOS Testing'
+          }
+        }
+
+      }
+    }
+
+    stage('Security') {
+      parallel {
+        stage('Security') {
+          steps {
+            echo 'Start Segurity Stage'
+          }
+        }
+
+        stage('Internal Pentest') {
+          steps {
+            echo 'Start Internat Pentest'
+          }
+        }
+
+        stage('External Pentest') {
+          steps {
+            echo 'Start External Pentest'
+          }
+        }
+
+      }
+    }
+
+    stage('Staging') {
+      parallel {
+        stage('Staging') {
+          steps {
+            echo 'Start Staging'
+          }
+        }
+
+        stage('Smoke Test') {
+          steps {
+            echo 'Smoke Testing'
+          }
+        }
+
+        stage('Chaos Engineering') {
+          steps {
+            echo 'Chaos Engineering'
+          }
+        }
+
+      }
+    }
+
+    stage('Deployment') {
+      parallel {
+        stage('Deployment') {
+          steps {
+            echo 'Deployment Stage'
+          }
+        }
+
+        stage('App Store') {
+          steps {
+            echo 'App Store Deployment'
+          }
+        }
+
+        stage('Play Store') {
+          steps {
+            echo 'Play Store Deployment'
+          }
+        }
+
       }
     }
 
